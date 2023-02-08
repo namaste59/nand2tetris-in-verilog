@@ -1,0 +1,69 @@
+#! /usr/local/Cellar/icarus-verilog/11.0/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/system.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/va_math.vpi";
+S_0x7f9c97a04260 .scope module, "DMUXTEST" "DMUXTEST" 2 1;
+ .timescale 0 0;
+v0x600002f10360_0 .var "a", 0 0;
+v0x600002f103f0_0 .var "b", 0 0;
+v0x600002f10480_0 .net "c", 0 0, L_0x600002c14000;  1 drivers
+v0x600002f10510_0 .net "d", 0 0, L_0x600002c140a0;  1 drivers
+S_0x7f9c97a043d0 .scope module, "dmux_instance" "DMUX" 2 6, 3 1 0, S_0x7f9c97a04260;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "in";
+    .port_info 1 /INPUT 1 "sel";
+    .port_info 2 /OUTPUT 1 "out0";
+    .port_info 3 /OUTPUT 1 "out1";
+L_0x7f9c97863008 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x600002f10000_0 .net/2u *"_ivl_0", 0 0, L_0x7f9c97863008;  1 drivers
+L_0x7f9c97863050 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x600002f10090_0 .net/2u *"_ivl_4", 0 0, L_0x7f9c97863050;  1 drivers
+v0x600002f10120_0 .net "in", 0 0, v0x600002f10360_0;  1 drivers
+v0x600002f101b0_0 .net "out0", 0 0, L_0x600002c14000;  alias, 1 drivers
+v0x600002f10240_0 .net "out1", 0 0, L_0x600002c140a0;  alias, 1 drivers
+v0x600002f102d0_0 .net "sel", 0 0, v0x600002f103f0_0;  1 drivers
+L_0x600002c14000 .functor MUXZ 1, v0x600002f10360_0, L_0x7f9c97863008, v0x600002f103f0_0, C4<>;
+L_0x600002c140a0 .functor MUXZ 1, L_0x7f9c97863050, v0x600002f10360_0, v0x600002f103f0_0, C4<>;
+    .scope S_0x7f9c97a04260;
+T_0 ;
+    %vpi_call 2 8 "$dumpfile", "dmux_test.vcd" {0 0 0};
+    %vpi_call 2 9 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x7f9c97a043d0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x600002f10360_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x600002f103f0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x600002f10360_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x600002f103f0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x600002f10360_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x600002f103f0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x600002f10360_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x600002f103f0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x600002f10360_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x600002f103f0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 20 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "dmux_test.v";
+    "dmux.v";
