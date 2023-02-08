@@ -1,0 +1,39 @@
+#! /usr/local/Cellar/icarus-verilog/11.0/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/system.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/va_math.vpi";
+S_0x7fe6a3a04080 .scope module, "NOT16TEST" "NOT16TEST" 2 1;
+ .timescale 0 0;
+v0x600002bc8120_0 .var "a", 15 0;
+v0x600002bc81b0_0 .net "b", 15 0, L_0x6000032c80e0;  1 drivers
+S_0x7fe6a3a041f0 .scope module, "not16_instance" "NOT16" 2 6, 3 1 0, S_0x7fe6a3a04080;
+ .timescale 0 0;
+    .port_info 0 /INPUT 16 "in";
+    .port_info 1 /OUTPUT 16 "out";
+L_0x6000032c80e0 .functor NOT 16, v0x600002bc8120_0, C4<0000000000000000>, C4<0000000000000000>, C4<0000000000000000>;
+v0x600002bc8000_0 .net "in", 15 0, v0x600002bc8120_0;  1 drivers
+v0x600002bc8090_0 .net "out", 15 0, L_0x6000032c80e0;  alias, 1 drivers
+    .scope S_0x7fe6a3a04080;
+T_0 ;
+    %vpi_call 2 9 "$dumpfile", "not16_test.vcd" {0 0 0};
+    %vpi_call 2 10 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x7fe6a3a041f0 {0 0 0};
+    %pushi/vec4 65535, 0, 16;
+    %store/vec4 v0x600002bc8120_0, 0, 16;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 16;
+    %store/vec4 v0x600002bc8120_0, 0, 16;
+    %delay 10, 0;
+    %vpi_call 2 16 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "not16_test.v";
+    "not16.v";

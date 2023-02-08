@@ -1,0 +1,25 @@
+$date
+	Wed Feb  8 12:40:44 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module NOT16TEST $end
+$scope module not16_instance $end
+$var wire 16 ! in [15:0] $end
+$var wire 16 " out [15:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 "
+b1111111111111111 !
+$end
+#10
+b1111111111111111 "
+b0 !
+#20
